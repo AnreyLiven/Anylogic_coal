@@ -113,7 +113,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1652523412136</Id>
 					<Name><![CDATA[curDateStr]]></Name>
-					<X>2300</X><Y>460</Y>
+					<X>2710</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -126,21 +126,9 @@
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
-					<Id>1652710881708</Id>
-					<Name><![CDATA[SumP]]></Name>
-					<X>2300</X><Y>430</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1652812721409</Id>
 					<Name><![CDATA[ExternalGridPower]]></Name>
-					<X>2300</X><Y>400</Y>
+					<X>2140</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -152,7 +140,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1652813024981</Id>
 					<Name><![CDATA[MiningEquipmentLoad]]></Name>
-					<X>2300</X><Y>370</Y>
+					<X>2140</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -164,7 +152,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1653052797802</Id>
 					<Name><![CDATA[EE_Cost]]></Name>
-					<X>2300</X><Y>340</Y>
+					<X>2360</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -176,7 +164,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1653053306858</Id>
 					<Name><![CDATA[Tarif]]></Name>
-					<X>2300</X><Y>310</Y>
+					<X>2360</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -191,7 +179,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1653054204559</Id>
 					<Name><![CDATA[CH4]]></Name>
-					<X>2680</X><Y>660</Y>
+					<X>2020</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -203,7 +191,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1653055517929</Id>
 					<Name><![CDATA[P_DC_nom]]></Name>
-					<X>2300</X><Y>280</Y>
+					<X>1790</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -211,8 +199,44 @@
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[250]]></Code>
+							<Code><![CDATA[750]]></Code>
 						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653071108068</Id>
+					<Name><![CDATA[EE_Cost_default]]></Name>
+					<X>2360</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653071760716</Id>
+					<Name><![CDATA[CH4_Cost_default]]></Name>
+					<X>2560</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653072051619</Id>
+					<Name><![CDATA[CH4_Cost]]></Name>
+					<X>2560</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="CollectionVariable">
@@ -265,7 +289,10 @@ GraphicElements.forEach(ar -> ar.setVisible(true));]]></EntryAction>
 						<Action><![CDATA[this.updateCurDateStr();
 this.updateExternalGridPower();
 this.update_EE_Cost();
-this.updateCH4()]]></Action>
+this.updateCH4();
+this.update_EE_Cost_default();
+this.update_CH4_Cost_Default();
+this.update_CH4_Cost();]]></Action>
 					</Properties>	
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="state" ParentStateId="1652523412138">
@@ -287,15 +314,21 @@ this.updateCH4()]]></Action>
 this.updateExternalGridPower();
 this.update_EE_Cost();
 this.updateCH4();
+
+//Скрытие стрелки к факелу
 if (this.CMM_on.isSelected()==true)
 GraphicElements.forEach(ar -> ar.setVisible(false));
 else
 GraphicElements.forEach(ar -> ar.setVisible(true));
+
+this.update_EE_Cost_default();
+this.update_CH4_Cost_Default();
+this.update_CH4_Cost();
 //this.calculateSumP();
 //this.calculateC();]]></Action>
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							<Code><![CDATA[59]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -314,7 +347,7 @@ GraphicElements.forEach(ar -> ar.setVisible(true));
 				<Event>
 					<Id>1653054087378</Id>
 					<Name><![CDATA[Torch_image]]></Name>
-					<X>2430</X><Y>400</Y>
+					<X>1790</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -352,7 +385,7 @@ else Platform.setIndex(1);]]></Action>
 					<Id>1652523412134</Id>
 					<Name><![CDATA[updateCurDateStr]]></Name>
 					<Description><![CDATA[Обновляет дату]]></Description>
-					<X>2430</X><Y>460</Y>
+					<X>2710</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -365,7 +398,7 @@ else Platform.setIndex(1);]]></Action>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1652812744334</Id>
 					<Name><![CDATA[updateExternalGridPower]]></Name>
-					<X>2430</X><Y>490</Y>
+					<X>2140</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -385,31 +418,70 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1653052663226</Id>
 					<Name><![CDATA[update_EE_Cost]]></Name>
-					<X>2430</X><Y>520</Y>
+					<X>2360</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[this.EE_Cost=this.Tarif*(this.MiningEquipmentLoad-this.ExternalGridPower);]]></Body>
+					<Body><![CDATA[this.EE_Cost=this.Tarif*(this.ExternalGridPower);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1653054204552</Id>
 					<Name><![CDATA[updateCH4]]></Name>
-					<X>2680</X><Y>690</Y>
+					<X>2020</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[this.CH4=CH_4(getHourOfDay());]]></Body>
 				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653071052557</Id>
+					<Name><![CDATA[update_EE_Cost_default]]></Name>
+					<X>2360</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[this.EE_Cost_default=this.Tarif*(this.MiningEquipmentLoad);]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653071773323</Id>
+					<Name><![CDATA[update_CH4_Cost_Default]]></Name>
+					<X>2560</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[this.CH4_Cost_default=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653071971332</Id>
+					<Name><![CDATA[update_CH4_Cost]]></Name>
+					<X>2560</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (this.CMM_on.isSelected()==true)
+this.CH4_Cost=CH_4(getHourOfDay())*13*1.6*54400/1000000000;
+else
+this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
+				</Function>
 			</Functions>
 			<TableFunctions>
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1652710280439</Id>
 					<Name><![CDATA[P_load]]></Name>
-					<X>2430</X><Y>430</Y>
+					<X>2140</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -442,7 +514,7 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1653054204555</Id>
 					<Name><![CDATA[CH_4]]></Name>
-					<X>2680</X><Y>740</Y>
+					<X>2020</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -771,9 +843,9 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					<ShowLegend>false</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
 					<TimeWindowUnits>DAY</TimeWindowUnits>
-					<VerScaleFromExpression><![CDATA[10000]]></VerScaleFromExpression>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[12000]]></VerScaleToExpression>
-					<VerScaleType>AUTO</VerScaleType>
+					<VerScaleType>FIXED</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
@@ -1189,9 +1261,9 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					<ShowLegend>true</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
 					<TimeWindowUnits>DAY</TimeWindowUnits>
-					<VerScaleFromExpression><![CDATA[10000]]></VerScaleFromExpression>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[12000]]></VerScaleToExpression>
-					<VerScaleType>AUTO</VerScaleType>
+					<VerScaleType>FIXED</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
@@ -1501,8 +1573,8 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>302.0194101876676</Width>
-					<Height>187.74313901345292</Height>
+					<Width>472.0194101876676</Width>
+					<Height>187.74313901345295</Height>
 					<BackgroundColor/>
 					<BorderColor/>
 					<ChartArea>
@@ -1515,7 +1587,7 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 						<GridColor>-12566464</GridColor>
 					</ChartArea>
 					<Legend>
-						<Place>SOUTH</Place>
+						<Place>EAST</Place>
 						<TextColor>-16777216</TextColor>
 						<Size>170</Size>
 					</Legend>
@@ -1524,7 +1596,7 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
 						<TextColor>-12566464</TextColor>
 					</Labels>
-					<ShowLegend>false</ShowLegend>
+					<ShowLegend>true</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
 					<TimeWindowUnits>DAY</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[40]]></VerScaleFromExpression>
@@ -1533,14 +1605,24 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
+						<Title><![CDATA[До подключения]]></Title>
+					<Id>0</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-2354116</Color>
+					<Expression2><![CDATA[this.EE_Cost_default]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
 						<Title><![CDATA[После подключения]]></Title>
 					<Id>1652706828755</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
-					<Color>-4565549</Color>
+					<Color>-16744448</Color>
 					<Expression2><![CDATA[this.EE_Cost]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
-						<LineWidth>1.0</LineWidth>
+						<LineWidth>2.0</LineWidth>
 					</DatasetExpression>
 					<SamplesToKeep>100</SamplesToKeep>
 					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
@@ -1963,8 +2045,8 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[0]]></MinValue>
-						<MaxValue><![CDATA[500]]></MaxValue>
+						<MinValue><![CDATA[500]]></MinValue>
+						<MaxValue><![CDATA[1000]]></MaxValue>
 						<Step><![CDATA[5]]></Step>
 						<LinkTo>true</LinkTo>
 						<Link>P_DC_nom</Link>
@@ -2130,6 +2212,150 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
+    			<TimePlot>
+					<Id>1653072251981</Id>
+					<Name><![CDATA[plot5]]></Name>
+					<X>250</X><Y>1970</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1592985600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>472.0194101876676</Width>
+					<Height>187.74313901345295</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>20</YOffset>
+						<Width>242.01941018766757</Width>
+						<Height>147.74313901345292</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>170</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>DAY</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[40]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[120]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>STEP</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[До подключения]]></Title>
+					<Id>1653072251978</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-2354116</Color>
+					<Expression2><![CDATA[this.CH4_Cost_default]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[После подключения]]></Title>
+					<Id>1653072251977</Id>
+					<Expression><![CDATA[my_dataset1]]></Expression>
+					<Color>-16744448</Color>
+					<Expression2><![CDATA[this.CH4_Cost]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>dd_MM_HH_mm</LabelFormat>
+    			</TimePlot>
+    			<TimePlot>
+					<Id>1653073216790</Id>
+					<Name><![CDATA[plot6]]></Name>
+					<X>990</X><Y>1970</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1592985600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>472.0194101876676</Width>
+					<Height>187.74313901345295</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>20</YOffset>
+						<Width>242.01941018766757</Width>
+						<Height>147.74313901345292</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>170</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>DAY</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[40]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[120]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>STEP</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Снижение затрат]]></Title>
+					<Id>1653073216786</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-16744448</Color>
+					<Expression2><![CDATA[this.CH4_Cost_default+this.EE_Cost_default-this.CH4_Cost-this.EE_Cost]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>dd_MM_HH_mm</LabelFormat>
+    			</TimePlot>
 			</Presentation>
 
 				</Level>
@@ -2342,8 +2568,8 @@ GraphicElements.forEach(ar -> ar.setVisible(true));
 else
 GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							<Code><![CDATA[59]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -2369,7 +2595,10 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[this.CMM_gen=P_gen(getHourOfDay());]]></Body>
+					<Body><![CDATA[if (main.CMM_on.isSelected()==true)
+this.CMM_gen=P_gen(getHourOfDay());
+else 
+this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -2591,7 +2820,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 					<TimeWindowUnits>DAY</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[800]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[1250]]></VerScaleToExpression>
-					<VerScaleType>FIXED</VerScaleType>
+					<VerScaleType>AUTO</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
@@ -2682,40 +2911,6 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 					   <Point><X>75</X><Y>10</Y><Z>0</Z></Point>
 					   <Point><X>25</X><Y>10</Y><Z>0</Z></Point>
 					   <Point><X>25</X><Y>20</Y><Z>0</Z></Point>
-					</Points>
-					<Closed>true</Closed>
-				</Polyline>
-				<Polyline>
-					<Id>1653054656202</Id>
-					<Name><![CDATA[polyline2]]></Name>
-					<X>1010</X><Y>-164.5</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor>-8388480</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<BeginArrowSize>1</BeginArrowSize>
-					<BeginArrowStyle>0</BeginArrowStyle>
-					<EndArrowSize>1</EndArrowSize>
-					<EndArrowStyle>0</EndArrowStyle>
-					<FillColor>-4565549</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Points>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-					   <Point><X>-25</X><Y>-20</Y><Z>0</Z></Point>
-					   <Point><X>-25</X><Y>-10</Y><Z>0</Z></Point>
-					   <Point><X>-215</X><Y>-10</Y><Z>0</Z></Point>
-					   <Point><X>-215</X><Y>10</Y><Z>0</Z></Point>
-					   <Point><X>-25</X><Y>10</Y><Z>0</Z></Point>
-					   <Point><X>-25</X><Y>20</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 					</Points>
 					<Closed>true</Closed>
 				</Polyline>
@@ -2967,8 +3162,8 @@ GraphicElements.forEach(ar -> ar.setVisible(true));
 else
 GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							<Code><![CDATA[59]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -2987,14 +3182,17 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1653045705191</Id>
+					<Id>1653074679338</Id>
 					<Name><![CDATA[updateDataCenterLoad]]></Name>
-					<X>1240</X><Y>110</Y>
+					<X>1240</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[this.DataCenterLoad=main.P_DC_nom*P_data_center(getHourOfDay());]]></Body>
+					<Body><![CDATA[if (main.DataCenter_on.isSelected()==true)
+this.DataCenterLoad=main.P_DC_nom*P_data_center(getHourOfDay());
+else 
+this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -3216,7 +3414,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 					<TimeWindowUnits>DAY</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
 					<VerScaleToExpression><![CDATA[550]]></VerScaleToExpression>
-					<VerScaleType>FIXED</VerScaleType>
+					<VerScaleType>AUTO</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
@@ -3566,7 +3764,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Rectangle>
 					<Id>1653035659229</Id>
 					<Name><![CDATA[rectangle3]]></Name>
-					<X>310</X><Y>210.5</Y>
+					<X>310</X><Y>205.5</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3588,7 +3786,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Image>
 					<Id>1653035659231</Id>
 					<Name><![CDATA[image8]]></Name>
-					<X>330</X><Y>275.5</Y>
+					<X>330</X><Y>270.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3610,7 +3808,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Text>
 					<Id>1653035659233</Id>
 					<Name><![CDATA[text13]]></Name>
-					<X>360</X><Y>235.5</Y>
+					<X>360</X><Y>230.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3631,7 +3829,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Text>
 					<Id>1653035659235</Id>
 					<Name><![CDATA[text14]]></Name>
-					<X>600</X><Y>295.5</Y>
+					<X>600</X><Y>290.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3653,7 +3851,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Text>
 					<Id>1653035659237</Id>
 					<Name><![CDATA[text15]]></Name>
-					<X>605</X><Y>365.5</Y>
+					<X>605</X><Y>360.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3675,7 +3873,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 				<Text>
 					<Id>1653035659239</Id>
 					<Name><![CDATA[text16]]></Name>
-					<X>600</X><Y>235.5</Y>
+					<X>600</X><Y>230.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
