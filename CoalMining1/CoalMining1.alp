@@ -239,6 +239,30 @@
 						<Type><![CDATA[double]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653470962029</Id>
+					<Name><![CDATA[C_Summ]]></Name>
+					<X>2840</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653472127084</Id>
+					<Name><![CDATA[C]]></Name>
+					<X>3010</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1653055934176</Id>
 					<Name><![CDATA[GraphicElements]]></Name>
@@ -253,6 +277,24 @@
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ To_Torch }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1653473324691</Id>
+					<Name><![CDATA[AI_sign]]></Name>
+					<X>180</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[ShapeGroup]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ ai_sign }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -292,7 +334,9 @@ this.update_EE_Cost();
 this.updateCH4();
 this.update_EE_Cost_default();
 this.update_CH4_Cost_Default();
-this.update_CH4_Cost();]]></Action>
+this.update_CH4_Cost();
+this.update_C();
+]]></Action>
 					</Properties>	
 				</StatechartElement>
 				<StatechartElement Class="Transition" ParentState="state" ParentStateId="1652523412138">
@@ -321,9 +365,18 @@ GraphicElements.forEach(ar -> ar.setVisible(false));
 else
 GraphicElements.forEach(ar -> ar.setVisible(true));
 
+//Значок AI над ГЩО
+if (this.DataCenter_on.isSelected()==true)
+AI_sign.forEach(ar -> ar.setVisible(true));
+else
+AI_sign.forEach(ar -> ar.setVisible(false));
+
+
 this.update_EE_Cost_default();
 this.update_CH4_Cost_Default();
 this.update_CH4_Cost();
+this.update_C_Summ();
+this.update_C();
 //this.calculateSumP();
 //this.calculateC();]]></Action>
 						<Timeout Class="CodeUnitValue">
@@ -475,6 +528,30 @@ this.ExternalGridPower=this.MiningEquipmentLoad-cMM_generation.CMM_gen+dataCente
 this.CH4_Cost=CH_4(getHourOfDay())*13*1.6*54400/1000000000;
 else
 this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653470936349</Id>
+					<Name><![CDATA[update_C_Summ]]></Name>
+					<X>2840</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[this.C_Summ=this.C_Summ+this.C;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653472092948</Id>
+					<Name><![CDATA[update_C]]></Name>
+					<X>3010</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[this.C=this.CH4_Cost_default+this.EE_Cost_default-this.CH4_Cost-this.EE_Cost;]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -909,7 +986,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652524099522</Id>
 					<Name><![CDATA[text2]]></Name>
-					<X>106.291</X><Y>336.009</Y>
+					<X>96.291</X><Y>336.009</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -972,7 +1049,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Image>
 					<Id>1652526415750</Id>
 					<Name><![CDATA[image1]]></Name>
-					<X>30.787</X><Y>242.138</Y>
+					<X>25.787</X><Y>247.138</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -980,8 +1057,8 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>75.5048525469169</Width>
-					<Height>117.33946188340806</Height>
+					<Width>69.213</Width>
+					<Height>107.862</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -1037,7 +1114,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652534213947</Id>
 					<Name><![CDATA[text6]]></Name>
-					<X>445</X><Y>200</Y>
+					<X>445</X><Y>170</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1080,7 +1157,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652538258656</Id>
 					<Name><![CDATA[text7]]></Name>
-					<X>445</X><Y>200</Y>
+					<X>445</X><Y>170</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1101,7 +1178,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<EmbeddedObjectPresentation>
 					<Id>1652701018259</Id>
 					<Name><![CDATA[cMM_generation_presentation]]></Name>
-					<X>585</X><Y>145</Y>
+					<X>585</X><Y>85</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1120,7 +1197,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Polyline>
 					<Id>1652701072177</Id>
 					<Name><![CDATA[polyline]]></Name>
-					<X>500</X><Y>250</Y>
+					<X>500</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1305,7 +1382,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Image>
 					<Id>1652706394773</Id>
 					<Name><![CDATA[image4]]></Name>
-					<X>21</X><Y>540</Y>
+					<X>26</X><Y>535</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1313,8 +1390,8 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>90</Width>
-					<Height>85</Height>
+					<Width>79</Width>
+					<Height>80</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -1327,7 +1404,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Polyline>
 					<Id>1652706431190</Id>
 					<Name><![CDATA[polyline1]]></Name>
-					<X>425</X><Y>550</Y>
+					<X>425</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1360,7 +1437,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652706441394</Id>
 					<Name><![CDATA[text10]]></Name>
-					<X>455</X><Y>500</Y>
+					<X>455</X><Y>440</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1490,7 +1567,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652706717733</Id>
 					<Name><![CDATA[text12]]></Name>
-					<X>1200</X><Y>1500</Y>
+					<X>1210</X><Y>1510</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1500,8 +1577,8 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Получение доходов от
-предоставления услуг ЦОД]]></Text>
+					<Text><![CDATA[Получение доходов от предоставления 
+услуг центра обработки данны]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>26</Size>
@@ -1555,7 +1632,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
     			<TimePlot>
 					<Id>1652706828758</Id>
 					<Name><![CDATA[plot3]]></Name>
-					<X>260</X><Y>1580</Y>
+					<X>200</X><Y>1580</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1573,7 +1650,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>472.0194101876676</Width>
+					<Width>482.0194101876675</Width>
 					<Height>187.74313901345295</Height>
 					<BackgroundColor/>
 					<BorderColor/>
@@ -1589,7 +1666,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<Legend>
 						<Place>EAST</Place>
 						<TextColor>-16777216</TextColor>
-						<Size>170</Size>
+						<Size>180</Size>
 					</Legend>
 					<Labels>
 						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
@@ -1605,7 +1682,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
-						<Title><![CDATA[До подключения]]></Title>
+						<Title><![CDATA[Без генерации на метане]]></Title>
 					<Id>0</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-2354116</Color>
@@ -1615,7 +1692,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<LineWidth>2.0</LineWidth>
 					</DatasetExpression>
 					<DatasetExpression>  
-						<Title><![CDATA[После подключения]]></Title>
+						<Title><![CDATA[Введена генерация на метане]]></Title>
 					<Id>1652706828755</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-16744448</Color>
@@ -1632,7 +1709,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652706835837</Id>
 					<Name><![CDATA[text15]]></Name>
-					<X>230</X><Y>1735</Y>
+					<X>170</X><Y>1735</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1653,7 +1730,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1652814510928</Id>
 					<Name><![CDATA[text9]]></Name>
-					<X>110</X><Y>615</Y>
+					<X>105</X><Y>615</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1674,7 +1751,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<EmbeddedObjectPresentation>
 					<Id>1653035595950</Id>
 					<Name><![CDATA[dataCenter_presentation]]></Name>
-					<X>575</X><Y>85</Y>
+					<X>575</X><Y>55</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1693,7 +1770,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653053904899</Id>
 					<Name><![CDATA[text16]]></Name>
-					<X>100</X><Y>850</Y>
+					<X>110</X><Y>850</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1781,7 +1858,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Image>
 					<Id>1653053941193</Id>
 					<Name><![CDATA[Platform]]></Name>
-					<X>600</X><Y>730</Y>
+					<X>600</X><Y>720</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1830,7 +1907,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1653055176770</Id>
 					<Name><![CDATA[CMM_on]]></Name>
-					<X>705</X><Y>780</Y>
+					<X>690</X><Y>780</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1852,7 +1929,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1653055176772</Id>
 					<Name><![CDATA[DataCenter_on]]></Name>
-					<X>705</X><Y>810</Y>
+					<X>690</X><Y>810</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1866,7 +1943,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Подключение ЦОД]]></LabelText>
+						<LabelText><![CDATA[Подключение центра обработки данных]]></LabelText>
 						<LinkTo>false</LinkTo>
 	 				</ExtendedProperties>
 				</Control>
@@ -1941,7 +2018,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653055346833</Id>
 					<Name><![CDATA[text41]]></Name>
-					<X>1010</X><Y>790</Y>
+					<X>965</X><Y>775</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1962,7 +2039,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<RoundedRectangle>
 					<Id>1653055346835</Id>
 					<Name><![CDATA[roundRectangle23]]></Name>
-					<X>990</X><Y>805</Y>
+					<X>945</X><Y>790</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1986,7 +2063,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1653055346837</Id>
 					<Name><![CDATA[slider2]]></Name>
-					<X>1110</X><Y>805</Y>
+					<X>1065</X><Y>790</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2009,7 +2086,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653055346839</Id>
 					<Name><![CDATA[text34]]></Name>
-					<X>1035</X><Y>807</Y>
+					<X>990</X><Y>792</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2032,7 +2109,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1653055422976</Id>
 					<Name><![CDATA[slider1]]></Name>
-					<X>1110</X><Y>850</Y>
+					<X>1065</X><Y>840</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2055,7 +2132,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653055422978</Id>
 					<Name><![CDATA[text40]]></Name>
-					<X>1010</X><Y>835</Y>
+					<X>1000</X><Y>815</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2065,18 +2142,19 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Мощность ЦОД]]></Text>
+					<Text><![CDATA[Мощность центра 
+обработки данных]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>10</Size>
 						<Style>1</Style>
 					</Font>
-					<Alignment>LEFT</Alignment>
+					<Alignment>CENTER</Alignment>
 				</Text>
 				<RoundedRectangle>
 					<Id>1653055422980</Id>
 					<Name><![CDATA[roundRectangle22]]></Name>
-					<X>990</X><Y>850</Y>
+					<X>945</X><Y>840</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2099,7 +2177,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653055422982</Id>
 					<Name><![CDATA[text33]]></Name>
-					<X>1035</X><Y>852</Y>
+					<X>990</X><Y>842</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2169,7 +2247,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 				<Text>
 					<Id>1653055849560</Id>
 					<Name><![CDATA[text18]]></Name>
-					<X>-30</X><Y>10</Y>
+					<X>-50</X><Y>-50</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2179,7 +2257,28 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[CH4]]></Text>
+					<Text><![CDATA[Метан]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1653468513901</Id>
+					<Name><![CDATA[text19]]></Name>
+					<X>-90</X><Y>20</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Сжигается на факеле]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>24</Size>
@@ -2215,7 +2314,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
     			<TimePlot>
 					<Id>1653072251981</Id>
 					<Name><![CDATA[plot5]]></Name>
-					<X>250</X><Y>1970</Y>
+					<X>200</X><Y>1970</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2233,7 +2332,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>472.0194101876676</Width>
+					<Width>482.0194101876675</Width>
 					<Height>187.74313901345295</Height>
 					<BackgroundColor/>
 					<BorderColor/>
@@ -2249,7 +2348,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<Legend>
 						<Place>EAST</Place>
 						<TextColor>-16777216</TextColor>
-						<Size>170</Size>
+						<Size>180</Size>
 					</Legend>
 					<Labels>
 						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
@@ -2265,7 +2364,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
-						<Title><![CDATA[До подключения]]></Title>
+						<Title><![CDATA[Без генерации на метане]]></Title>
 					<Id>1653072251978</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-2354116</Color>
@@ -2275,7 +2374,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<LineWidth>2.0</LineWidth>
 					</DatasetExpression>
 					<DatasetExpression>  
-						<Title><![CDATA[После подключения]]></Title>
+						<Title><![CDATA[Введена генерация на метане]]></Title>
 					<Id>1653072251977</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-16744448</Color>
@@ -2292,7 +2391,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
     			<TimePlot>
 					<Id>1653073216790</Id>
 					<Name><![CDATA[plot6]]></Name>
-					<X>990</X><Y>1970</Y>
+					<X>1030</X><Y>1970</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2310,7 +2409,7 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>472.0194101876676</Width>
+					<Width>302.0194101876676</Width>
 					<Height>187.74313901345295</Height>
 					<BackgroundColor/>
 					<BorderColor/>
@@ -2319,6 +2418,94 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 						<YOffset>20</YOffset>
 						<Width>242.01941018766757</Width>
 						<Height>147.74313901345292</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>170</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>false</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>DAY</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[40]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[120]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>STEP</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Снижение затрат]]></Title>
+					<Id>1653073216786</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-16744448</Color>
+					<Expression2><![CDATA[this.C]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>dd_MM_HH_mm</LabelFormat>
+    			</TimePlot>
+				<Text>
+					<Id>1653470399845</Id>
+					<Name><![CDATA[text20]]></Name>
+					<X>480</X><Y>110</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Подстанция]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>26</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<TimePlot>
+					<Id>1653471259925</Id>
+					<Name><![CDATA[plot7]]></Name>
+					<X>1150</X><Y>725</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1592985600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>390</Width>
+					<Height>150</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>20</YOffset>
+						<Width>160</Width>
+						<Height>109.99999999999997</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -2342,11 +2529,11 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
 					<DatasetExpression>  
-						<Title><![CDATA[Снижение затрат]]></Title>
-					<Id>1653073216786</Id>
+						<Title><![CDATA[Экономический эффект, руб]]></Title>
+					<Id>1653471259922</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-16744448</Color>
-					<Expression2><![CDATA[this.CH4_Cost_default+this.EE_Cost_default-this.CH4_Cost-this.EE_Cost]]></Expression2>
+					<Expression2><![CDATA[this.C_Summ]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>2.0</LineWidth>
@@ -2356,6 +2543,87 @@ this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>dd_MM_HH_mm</LabelFormat>
     			</TimePlot>
+				<Text>
+					<Id>1653472666083</Id>
+					<Name><![CDATA[text21]]></Name>
+					<X>200</X><Y>2130</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>270.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Плата за выбросы, руб.]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1653472683899</Id>
+					<Name><![CDATA[text22]]></Name>
+					<X>1020</X><Y>2130</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>270.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Снижения затрат, руб.]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1653473459744</Id>
+					<Name><![CDATA[ai_sign]]></Name>
+					<X>70</X><Y>510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Image>
+					<Id>1653473443256</Id>
+					<Name><![CDATA[image6]]></Name>
+					<X>-30</X><Y>-25</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>55</Width>
+					<Height>46</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[coalmining]]></PackageName>
+							<ClassName><![CDATA[image14.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -2732,7 +3000,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1652524295779</Id>
 					<Name><![CDATA[text2]]></Name>
-					<X>-40</X><Y>45</Y>
+					<X>-45</X><Y>80</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2742,7 +3010,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>270.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Генерация, кВт]]></Text>
+					<Text><![CDATA[Общая генерация, кВт]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>12</Size>
@@ -2753,7 +3021,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1652524295781</Id>
 					<Name><![CDATA[text1]]></Name>
-					<X>-190</X><Y>-100</Y>
+					<X>-200</X><Y>-110</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2766,7 +3034,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Text><![CDATA[Генерация на шахтном метане]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
-						<Size>16</Size>
+						<Size>26</Size>
 						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
@@ -2841,7 +3109,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Image>
 					<Id>1652700982725</Id>
 					<Name><![CDATA[image3]]></Name>
-					<X>-205</X><Y>-50</Y>
+					<X>-190</X><Y>15</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2849,8 +3117,8 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>160</Width>
-					<Height>110</Height>
+					<Width>130</Width>
+					<Height>80.5</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -2917,7 +3185,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653054656204</Id>
 					<Name><![CDATA[text17]]></Name>
-					<X>-365</X><Y>41</Y>
+					<X>-425</X><Y>115.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2927,7 +3195,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[CH4]]></Text>
+					<Text><![CDATA[Метан]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>24</Size>
@@ -2938,7 +3206,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Polyline>
 					<Id>1653056270565</Id>
 					<Name><![CDATA[polyline3]]></Name>
-					<X>-255</X><Y>90.5</Y>
+					<X>-110</X><Y>135.5</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2959,20 +3227,104 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<FillMaterial>null</FillMaterial>
 					<Points>
 					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>10</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>-10</X><Y>-20</Y><Z>0</Z></Point>
+					   <Point><X>-30</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>10</Y><Z>0</Z></Point>
+					   <Point><X>-335</X><Y>10</Y><Z>0</Z></Point>
+					   <Point><X>-335</X><Y>30</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>30</Y><Z>0</Z></Point>
 					   <Point><X>0</X><Y>10</Y><Z>0</Z></Point>
-					   <Point><X>25</X><Y>-10</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-30</Y><Z>0</Z></Point>
-					   <Point><X>0</X><Y>-20</Y><Z>0</Z></Point>
-					   <Point><X>-80</X><Y>-20</Y><Z>0</Z></Point>
-					   <Point><X>-80</X><Y>80</Y><Z>0</Z></Point>
-					   <Point><X>-190</X><Y>80</Y><Z>0</Z></Point>
-					   <Point><X>-190</X><Y>100</Y><Z>0</Z></Point>
-					   <Point><X>-60</X><Y>100</Y><Z>0</Z></Point>
-					   <Point><X>-60</X><Y>0</Y><Z>0</Z></Point>
 					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 					</Points>
 					<Closed>true</Closed>
 				</Polyline>
+				<Image>
+					<Id>1653470482747</Id>
+					<Name><![CDATA[image]]></Name>
+					<X>-195</X><Y>-79.5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Width>140</Width>
+					<Height>75</Height>
+					<Rotation>0.0</Rotation>
+					<ImageFiles>
+						<ImageResourceReference>
+							<PackageName><![CDATA[coalmining]]></PackageName>
+							<ClassName><![CDATA[image8.png]]></ClassName>
+						</ImageResourceReference>
+					</ImageFiles>
+					<OriginalSize>false</OriginalSize>
+				</Image>
+				<Text>
+					<Id>1653470482759</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>-175</X><Y>90.5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Электрогенерация]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1653470482761</Id>
+					<Name><![CDATA[text4]]></Name>
+					<X>-180</X><Y>-4.5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Тепло и охлаждение]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>12</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1653470482763</Id>
+					<Name><![CDATA[text18]]></Name>
+					<X>-435</X><Y>165.5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Используется для генерации]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>24</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Group>
@@ -3083,7 +3435,7 @@ this.CMM_gen=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Variable Class="PlainVariable">
 					<Id>1653047854803</Id>
 					<Name><![CDATA[DataCenterLoad]]></Name>
-					<X>1240</X><Y>70</Y>
+					<X>1320</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3184,7 +3536,7 @@ GraphicElements.forEach(ar -> ar.setVisible(false));]]></Action>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1653074679338</Id>
 					<Name><![CDATA[updateDataCenterLoad]]></Name>
-					<X>1240</X><Y>140</Y>
+					<X>1320</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3199,7 +3551,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<TableFunction AccessType="public" StaticFunction="false">
 					<Id>1653045705194</Id>
 					<Name><![CDATA[P_data_center]]></Name>
-					<X>1250</X><Y>170</Y>
+					<X>1320</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3347,7 +3699,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659195</Id>
 					<Name><![CDATA[text19]]></Name>
-					<X>-145</X><Y>-100</Y>
+					<X>-195</X><Y>-100</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3357,7 +3709,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[ЦОД]]></Text>
+					<Text><![CDATA[Центр обработки данных]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>26</Size>
@@ -3568,7 +3920,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659211</Id>
 					<Name><![CDATA[text5]]></Name>
-					<X>260</X><Y>-109.5</Y>
+					<X>270</X><Y>-109.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3578,7 +3930,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Data]]></Text>
+					<Text><![CDATA[IT]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>16</Size>
@@ -3589,7 +3941,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659213</Id>
 					<Name><![CDATA[text9]]></Name>
-					<X>320</X><Y>-99.5</Y>
+					<X>450</X><Y>-110</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3599,18 +3951,19 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[MES-шахты]]></Text>
+					<Text><![CDATA[Система управления 
+производством]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>26</Size>
 						<Style>1</Style>
 					</Font>
-					<Alignment>LEFT</Alignment>
+					<Alignment>CENTER</Alignment>
 				</Text>
 				<Image>
 					<Id>1653035659215</Id>
 					<Name><![CDATA[image4]]></Name>
-					<X>325</X><Y>-39.5</Y>
+					<X>345</X><Y>-9.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3632,7 +3985,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Image>
 					<Id>1653035659217</Id>
 					<Name><![CDATA[image5]]></Name>
-					<X>475</X><Y>-94.5</Y>
+					<X>480</X><Y>-54.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3654,7 +4007,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Image>
 					<Id>1653035659219</Id>
 					<Name><![CDATA[image6]]></Name>
-					<X>480</X><Y>-29.5</Y>
+					<X>480</X><Y>-4.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3662,8 +4015,8 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>65</Width>
-					<Height>60</Height>
+					<Width>70</Width>
+					<Height>49.5</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -3676,7 +4029,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Image>
 					<Id>1653035659221</Id>
 					<Name><![CDATA[image7]]></Name>
-					<X>485</X><Y>40.5</Y>
+					<X>495</X><Y>50.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3684,8 +4037,8 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>55</Width>
-					<Height>55</Height>
+					<Width>45</Width>
+					<Height>49.5</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -3698,7 +4051,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659223</Id>
 					<Name><![CDATA[text10]]></Name>
-					<X>610</X><Y>-79.5</Y>
+					<X>610</X><Y>-39.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3720,7 +4073,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659225</Id>
 					<Name><![CDATA[text11]]></Name>
-					<X>610</X><Y>-19.5</Y>
+					<X>610</X><Y>10.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3742,7 +4095,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659227</Id>
 					<Name><![CDATA[text12]]></Name>
-					<X>615</X><Y>50.5</Y>
+					<X>615</X><Y>60.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3764,7 +4117,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Rectangle>
 					<Id>1653035659229</Id>
 					<Name><![CDATA[rectangle3]]></Name>
-					<X>310</X><Y>205.5</Y>
+					<X>310</X><Y>175.5</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3786,7 +4139,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Image>
 					<Id>1653035659231</Id>
 					<Name><![CDATA[image8]]></Name>
-					<X>330</X><Y>270.5</Y>
+					<X>330</X><Y>240.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3808,7 +4161,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659233</Id>
 					<Name><![CDATA[text13]]></Name>
-					<X>360</X><Y>230.5</Y>
+					<X>360</X><Y>200.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3829,7 +4182,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659235</Id>
 					<Name><![CDATA[text14]]></Name>
-					<X>600</X><Y>290.5</Y>
+					<X>600</X><Y>260.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3851,7 +4204,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659237</Id>
 					<Name><![CDATA[text15]]></Name>
-					<X>605</X><Y>360.5</Y>
+					<X>605</X><Y>330.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3873,7 +4226,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659239</Id>
 					<Name><![CDATA[text16]]></Name>
-					<X>600</X><Y>230.5</Y>
+					<X>600</X><Y>200.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3895,7 +4248,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Polyline>
 					<Id>1653035659241</Id>
 					<Name><![CDATA[polyline4]]></Name>
-					<X>270</X><Y>140.5</Y>
+					<X>270</X><Y>125.5</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3929,7 +4282,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653035659243</Id>
 					<Name><![CDATA[text17]]></Name>
-					<X>305</X><Y>130.5</Y>
+					<X>295</X><Y>120.5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3939,7 +4292,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Data]]></Text>
+					<Text><![CDATA[IT]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>16</Size>
@@ -3953,7 +4306,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Group>
 					<Id>1653057063815</Id>
 					<Name><![CDATA[Cold]]></Name>
-					<X>280</X><Y>340</Y>
+					<X>170</X><Y>325</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3967,7 +4320,7 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 				<Text>
 					<Id>1653036034504</Id>
 					<Name><![CDATA[text8]]></Name>
-					<X>-70</X><Y>-5</Y>
+					<X>125</X><Y>-5</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3977,13 +4330,13 @@ this.DataCenterLoad=main.P_DC_nom-main.P_DC_nom;]]></Body>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Холод]]></Text>
+					<Text><![CDATA[Охлаждение]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>24</Size>
 						<Style>1</Style>
 					</Font>
-					<Alignment>LEFT</Alignment>
+					<Alignment>CENTER</Alignment>
 				</Text>
 				<Polyline>
 					<Id>1653036034506</Id>
@@ -4532,6 +4885,14 @@ public class TimeUtils implements Serializable {
 		</Resource>
 		<Resource>
 			<Path><![CDATA[image17.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[image8.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[image14.png]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
