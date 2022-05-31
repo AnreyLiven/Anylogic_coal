@@ -203,7 +203,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1653071760716</Id>
 					<Name><![CDATA[CH4_Cost_default]]></Name>
-					<X>2560</X><Y>230</Y>
+					<X>2560</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -439,7 +439,7 @@
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[500]]></Code>
+							<Code><![CDATA[Math.round ((0.7+0.2*Math.random())*this.P_DC_nom/5);]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -455,6 +455,105 @@
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[50000]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653893918831</Id>
+					<Name><![CDATA[kos]]></Name>
+					<X>3560</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653897434375</Id>
+					<Name><![CDATA[CH4_2_default]]></Name>
+					<X>1930</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653897451135</Id>
+					<Name><![CDATA[CH4_2]]></Name>
+					<X>1930</X><Y>390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653898031839</Id>
+					<Name><![CDATA[CH4_2_Summ]]></Name>
+					<X>1930</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653927560354</Id>
+					<Name><![CDATA[EU_tarif]]></Name>
+					<X>2560</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[5500]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653930041214</Id>
+					<Name><![CDATA[upper]]></Name>
+					<X>2560</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[35]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1653930047684</Id>
+					<Name><![CDATA[down]]></Name>
+					<X>2560</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -512,6 +611,24 @@
 					</Properties>
 
 				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1653899962040</Id>
+					<Name><![CDATA[CheckBoxes]]></Name>
+					<X>360</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[ShapeGroup]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ Checkboxes }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
 			</Variables>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
@@ -552,6 +669,7 @@ this.update_C();
 this.update_CH4_Summ();
 this.update_DC_Cost();
 this.updateDataCenterLoad();
+this.updateCH4_2();
 
 ]]></Action>
 					</Properties>	
@@ -571,7 +689,11 @@ this.updateDataCenterLoad();
 					</Points>
 					<IconOffset>50.0</IconOffset>
 					<Properties Source="1652523412138" Target="1652523412138" Trigger="timeout">
-						<Action><![CDATA[this.updateCurDateStr();
+						<Action><![CDATA[//Ставит модель на паузу сразу после запуска, для дальнейшего запуска модели по кнопке
+if (this.kos==0)
+pauseSimulation();
+
+this.updateCurDateStr();
 this.updateExternalGridPower();
 this.update_EE_Cost();
 this.updateCH4();
@@ -608,11 +730,44 @@ this.update_C();
 this.update_CH4_Summ();
 this.update_DC_Cost();
 this.updateDataCenterLoad();
+this.updateCH4_2();
 //this.calculateSumP();
 //this.calculateC();]]></Action>
 						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[30]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="state" ParentStateId="1652523412138">
+					<Id>1653980510577</Id>
+					<Name><![CDATA[transition1]]></Name>
+					<X>2890</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-120</X><Y>0</Y></Point>
+						<Point><X>-120</X><Y>60</Y></Point>
+					</Points>
+					<IconOffset>140.0</IconOffset>
+					<Properties Source="1652523412138" Target="1652523412138" Trigger="timeout">
+						<Action><![CDATA[this.N_rack=Math.round ((0.7+0.2*Math.random())*this.P_DC_nom/5);]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[8]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 						</Timeout>
 						<Condition><![CDATA[true]]></Condition>
 						<Rate Class="CodeUnitValue">
@@ -740,12 +895,15 @@ this.ExternalGridPower_dif_Summ=this.ExternalGridPower_dif_Summ+this.ExternalGri
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1653071773323</Id>
 					<Name><![CDATA[update_CH4_Cost_Default]]></Name>
-					<X>2560</X><Y>200</Y>
+					<X>2560</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[this.CH4_Cost_default=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
+					<Body><![CDATA[if (this.tarifRF.isSelected()==true)
+this.CH4_Cost_default=(0.7168/1000)*108*CH_4(getHourOfDay());
+else
+this.CH4_Cost_default=this.EU_tarif*((0.7168/1000)*CH_4(getHourOfDay())+this.CH4_2_default/1000);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -757,10 +915,22 @@ this.ExternalGridPower_dif_Summ=this.ExternalGridPower_dif_Summ+this.ExternalGri
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[if (this.CMM_on.isSelected()==true)
+					<Body><![CDATA[if (this.tarifRF.isSelected()==true)
+{
+this.down=0;
+this.upper=50;
+if (this.CMM_on.isSelected()==true)
 this.CH4_Cost=CH_4(getHourOfDay())*13*1.6*54400/1000000000;
 else
-this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());]]></Body>
+this.CH4_Cost=(0.7168/1000)*108*CH_4(getHourOfDay());
+} else{
+this.down=0;
+this.upper=25000;
+if (this.CMM_on.isSelected()==true)
+this.CH4_Cost=this.EU_tarif*(this.CH4_2)/1000;
+else
+this.CH4_Cost=this.EU_tarif*(0.7168*CH_4(getHourOfDay())+this.CH4_2_default)/1000;
+}]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -803,11 +973,11 @@ this.C=this.C_EE+this.C_CH4+this.C_DC;]]></Body>
 					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[if (this.CMM_on.isSelected()==true)
-this.CH4_Summ=this.CH4_Summ+CH_4(getHourOfDay());
+this.CH4_Summ=this.CH4_Summ+0.7168*CH_4(getHourOfDay());
 else
 this.CH4_Summ=this.CH4_Summ;
 
-this.TreesSaved=Math.round (0.657*this.CH4_Summ/1000);]]></Body>
+this.TreesSaved=Math.round ((this.CH4_2_Summ+this.CH4_Summ)/1000);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -834,12 +1004,26 @@ this.DC_Cost=0;]]></Body>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[this.N_rack=Math.round ((0.7+0.2*Math.random())*this.P_DC_nom/5);
+					<Body><![CDATA[//this.N_rack=Math.round ((0.7+0.2*Math.random())*this.P_DC_nom/5);
 
 if (this.DataCenter_on.isSelected()==true)
 this.DataCenterLoad=this.N_rack*5;
 else 
 this.DataCenterLoad=0;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1653897457599</Id>
+					<Name><![CDATA[updateCH4_2]]></Name>
+					<X>1930</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[this.CH4_2=this.ExternalGridPower*330/1000;
+this.CH4_2_default=this.MiningEquipmentLoad*330/1000;
+this.CH4_2_Summ=this.CH4_2_Summ+this.CH4_2_default-this.CH4_2;]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -1209,7 +1393,7 @@ this.DataCenterLoad=0;]]></Body>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
 					<TimeWindowUnits>DAY</TimeWindowUnits>
 					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
-					<VerScaleToExpression><![CDATA[12000]]></VerScaleToExpression>
+					<VerScaleToExpression><![CDATA[13000]]></VerScaleToExpression>
 					<VerScaleType>FIXED</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
@@ -2072,8 +2256,8 @@ this.DataCenterLoad=0;]]></Body>
 						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
 					</OccurrenceTime>
 					<RecurrenceCode Class="CodeUnitValue">
-						<Code><![CDATA[1]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						<Code><![CDATA[30]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>302.0194101876676</Width>
@@ -2112,12 +2296,12 @@ this.DataCenterLoad=0;]]></Body>
 					<Id>1653053904900</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-4565549</Color>
-					<Expression2><![CDATA[this.CH4*0.657]]></Expression2>
+					<Expression2><![CDATA[this.CH4*0.7168]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>100</SamplesToKeep>
+					<SamplesToKeep>50</SamplesToKeep>
 					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>dd_MM_HH_mm</LabelFormat>
@@ -2170,54 +2354,10 @@ this.DataCenterLoad=0;]]></Body>
 					<FillColor>-1</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
-				<Control Type="CheckBox">
-				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1653055176770</Id>
-					<Name><![CDATA[CMM_on]]></Name>
-					<X>700</X><Y>3215</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="280" Height="30">
-                        <EmbeddedIcon>false</EmbeddedIcon>	
-						<TextColor/>
-						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[//roundRectangle.setFillColor(white);]]></ActionCode>
-					</BasicProperties>
-					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Подключение генерации на шахтном метане]]></LabelText>
-						<LinkTo>false</LinkTo>
-	 				</ExtendedProperties>
-				</Control>
-				<Control Type="CheckBox">
-				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1653055176772</Id>
-					<Name><![CDATA[DataCenter_on]]></Name>
-					<X>700</X><Y>3245</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="280" Height="30">
-                        <EmbeddedIcon>false</EmbeddedIcon>	
-						<TextColor/>
-						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[//roundRectangle.setFillColor(white);]]></ActionCode>
-					</BasicProperties>
-					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Подключение центра обработки данных]]></LabelText>
-						<LinkTo>false</LinkTo>
-	 				</ExtendedProperties>
-				</Control>
 				<Text>
 					<Id>1653055207185</Id>
 					<Name><![CDATA[text17]]></Name>
-					<X>715</X><Y>3175</Y>
+					<X>710</X><Y>3160</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2444,8 +2584,8 @@ this.DataCenterLoad=0;]]></Body>
 					<ShowLegend>true</ShowLegend>
 					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
 					<TimeWindowUnits>DAY</TimeWindowUnits>
-					<VerScaleFromExpression><![CDATA[40]]></VerScaleFromExpression>
-					<VerScaleToExpression><![CDATA[120]]></VerScaleToExpression>
+					<VerScaleFromExpression><![CDATA[this.down]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[this.upper]]></VerScaleToExpression>
 					<VerScaleType>AUTO</VerScaleType>
 					<DrawLine>true</DrawLine>
 					<Interpolation>STEP</Interpolation>
@@ -2469,7 +2609,7 @@ this.DataCenterLoad=0;]]></Body>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>2.0</LineWidth>
 					</DatasetExpression>
-					<SamplesToKeep>100</SamplesToKeep>
+					<SamplesToKeep>25</SamplesToKeep>
 					<TimeWindowExpression><![CDATA[1]]></TimeWindowExpression>
 					<FillAreaUnderLine>false</FillAreaUnderLine>
 					<LabelFormat>dd_MM_HH_mm</LabelFormat>
@@ -2477,7 +2617,7 @@ this.DataCenterLoad=0;]]></Body>
     			<TimePlot>
 					<Id>1653073216790</Id>
 					<Name><![CDATA[plot6]]></Name>
-					<X>1030</X><Y>1970</Y>
+					<X>1010</X><Y>1970</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2565,7 +2705,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653472666083</Id>
 					<Name><![CDATA[text21]]></Name>
-					<X>210</X><Y>2130</Y>
+					<X>220</X><Y>2060</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2575,18 +2715,18 @@ this.DataCenterLoad=0;]]></Body>
 					<Z>0</Z>
 					<Rotation>270.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Плата за выбросы, руб.]]></Text>
+					<Text><![CDATA[Плата за выбросы, руб]]></Text>
 					<Font>
 						<Name>Times New Roman</Name>
 						<Size>12</Size>
 						<Style>1</Style>
 					</Font>
-					<Alignment>LEFT</Alignment>
+					<Alignment>CENTER</Alignment>
 				</Text>
 				<Text>
 					<Id>1653472683899</Id>
 					<Name><![CDATA[text22]]></Name>
-					<X>1020</X><Y>2130</Y>
+					<X>1000</X><Y>2130</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3053,7 +3193,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653657217670</Id>
 					<Name><![CDATA[text30]]></Name>
-					<X>1295</X><Y>3200</Y>
+					<X>1295</X><Y>3204</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3185,7 +3325,7 @@ this.DataCenterLoad=0;]]></Body>
 				<RoundedRectangle>
 					<Id>1653661968686</Id>
 					<Name><![CDATA[roundRectangle5]]></Name>
-					<X>540</X><Y>1990</Y>
+					<X>540</X><Y>2025</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3208,7 +3348,7 @@ this.DataCenterLoad=0;]]></Body>
 				<RoundedRectangle>
 					<Id>1653661968688</Id>
 					<Name><![CDATA[roundRectangle9]]></Name>
-					<X>560</X><Y>2065</Y>
+					<X>560</X><Y>2100</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3231,7 +3371,7 @@ this.DataCenterLoad=0;]]></Body>
 				<RoundedRectangle>
 					<Id>1653661968690</Id>
 					<Name><![CDATA[roundRectangle10]]></Name>
-					<X>560</X><Y>2027</Y>
+					<X>560</X><Y>2062</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3254,7 +3394,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653661985687</Id>
 					<Name><![CDATA[text29]]></Name>
-					<X>615</X><Y>1995</Y>
+					<X>615</X><Y>2030</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3276,7 +3416,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653662017270</Id>
 					<Name><![CDATA[text39]]></Name>
-					<X>614</X><Y>2029</Y>
+					<X>614</X><Y>2064</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3287,7 +3427,7 @@ this.DataCenterLoad=0;]]></Body>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[text]]></Text>
-					<TextCode><![CDATA[String.format("%.2f",this.CH4_Summ*0.657)+" кг"]]></TextCode>
+					<TextCode><![CDATA[String.format("%.2f",this.CH4_Summ+this.CH4_2_Summ)+" кг"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>10</Size>
@@ -3298,7 +3438,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653662030647</Id>
 					<Name><![CDATA[text44]]></Name>
-					<X>615</X><Y>2068</Y>
+					<X>615</X><Y>2103</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3320,7 +3460,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653662045374</Id>
 					<Name><![CDATA[text27]]></Name>
-					<X>615</X><Y>2050</Y>
+					<X>615</X><Y>2085</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3341,7 +3481,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653662488023</Id>
 					<Name><![CDATA[text31]]></Name>
-					<X>615</X><Y>2095</Y>
+					<X>615</X><Y>2130</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3363,7 +3503,7 @@ this.DataCenterLoad=0;]]></Body>
 				<RoundedRectangle>
 					<Id>1653662488025</Id>
 					<Name><![CDATA[roundRectangle11]]></Name>
-					<X>560</X><Y>2125</Y>
+					<X>560</X><Y>2160</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3386,7 +3526,7 @@ this.DataCenterLoad=0;]]></Body>
 				<Text>
 					<Id>1653662488027</Id>
 					<Name><![CDATA[text45]]></Name>
-					<X>615</X><Y>2128</Y>
+					<X>615</X><Y>2163</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3794,7 +3934,9 @@ this.DataCenterLoad=0;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<OnClickCode><![CDATA[this.MainViewArea.navigateTo();]]></OnClickCode>
+					<OnClickCode><![CDATA[this.MainViewArea.navigateTo();
+this.kos=1;
+runSimulation();]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
@@ -3886,7 +4028,7 @@ this.DataCenterLoad=0;]]></Body>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Width>1360</Width>
-					<Height>340</Height>
+					<Height>310</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
@@ -3918,28 +4060,6 @@ this.DataCenterLoad=0;]]></Body>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
-				<Text>
-					<Id>1653671131494</Id>
-					<Name><![CDATA[text51]]></Name>
-					<X>460</X><Y>690</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Утилизация шахтного
-метана]]></Text>
-					<Font>
-						<Name>Times New Roman</Name>
-						<Size>36</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>CENTER</Alignment>
-				</Text>
 				<Line>
 					<Id>1653671131496</Id>
 					<Name><![CDATA[line]]></Name>
@@ -4050,28 +4170,6 @@ this.DataCenterLoad=0;]]></Body>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
-				<Text>
-					<Id>1653671131506</Id>
-					<Name><![CDATA[text52]]></Name>
-					<X>1140</X><Y>690</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Использование инфраструктуры
-угольных шахт для размещения ЦОДов]]></Text>
-					<Font>
-						<Name>Times New Roman</Name>
-						<Size>36</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>CENTER</Alignment>
-				</Text>
 				<Text>
 					<Id>1653671131508</Id>
 					<Name><![CDATA[text53]]></Name>
@@ -4253,6 +4351,336 @@ this.DataCenterLoad=0;]]></Body>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
+				<RoundedRectangle>
+					<Id>1653720329215</Id>
+					<Name><![CDATA[roundRectangle16]]></Name>
+					<X>1330</X><Y>2010</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>160</Width>
+					<Height>110</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1653720350287</Id>
+					<Name><![CDATA[roundRectangle18]]></Name>
+					<X>1335</X><Y>2020</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>150</Width>
+					<Height>40</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1644806</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1653720350289</Id>
+					<Name><![CDATA[roundRectangle19]]></Name>
+					<X>1355</X><Y>2085</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>110</Width>
+					<Height>20</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1644806</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1653720375652</Id>
+					<Name><![CDATA[text56]]></Name>
+					<X>1410</X><Y>2020</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Совокупный 
+экономический эффект]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<Text>
+					<Id>1653720375655</Id>
+					<Name><![CDATA[text57]]></Name>
+					<X>1410</X><Y>2090</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[text]]></Text>
+					<TextCode><![CDATA[String.format("%.2f",this.C_Summ/1000)+" тыс. руб"]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1653899528912</Id>
+					<Name><![CDATA[roundRectangle20]]></Name>
+					<X>300</X><Y>670</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[this.MainViewArea.navigateTo();
+this.kos=1;
+CMM_on.setSelected(true);
+CMM_on.setEnabled(false);
+DataCenter_on.setEnabled(false);
+Platform.setVisible(false);
+runSimulation();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>360</Width>
+					<Height>80</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1653899547608</Id>
+					<Name><![CDATA[text51]]></Name>
+					<X>480</X><Y>670</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Утилизация шахтного
+метана]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<Group>
+					<Id>1653899946926</Id>
+					<Name><![CDATA[Checkboxes]]></Name>
+					<X>840</X><Y>3240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1653055176770</Id>
+					<Name><![CDATA[CMM_on]]></Name>
+					<X>-140</X><Y>-25</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="280" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[//roundRectangle.setFillColor(white);]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Подключение генерации на шахтном метане]]></LabelText>
+						<DefaultValueCode><![CDATA[false]]></DefaultValueCode>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1653055176772</Id>
+					<Name><![CDATA[DataCenter_on]]></Name>
+					<X>-140</X><Y>5</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="280" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[//roundRectangle.setFillColor(white);]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Подключение центра обработки данных]]></LabelText>
+						<DefaultValueCode><![CDATA[false]]></DefaultValueCode>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
+			</Presentation>
+
+				</Group>
+				<RoundedRectangle>
+					<Id>1653924876946</Id>
+					<Name><![CDATA[roundRectangle21]]></Name>
+					<X>890</X><Y>670</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[this.MainViewArea.navigateTo();
+this.kos=1;
+DataCenter_on.setSelected(true);
+CMM_on.setSelected(true);
+CMM_on.setEnabled(false);
+DataCenter_on.setEnabled(false);
+Platform.setVisible(false);
+runSimulation();]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>650</Width>
+					<Height>80</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1653924886831</Id>
+					<Name><![CDATA[text52]]></Name>
+					<X>1220</X><Y>670</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Использование инфраструктуры
+угольных шахт для размещения ЦОДов]]></Text>
+					<Font>
+						<Name>Times New Roman</Name>
+						<Size>36</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1653925774657</Id>
+					<Name><![CDATA[tarifRF]]></Name>
+					<X>540</X><Y>1955</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="145" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>false</Enabled>
+						<ActionCode><![CDATA[tarifEU.setSelected(false);
+tarifRF.setEnabled(false);
+tarifEU.setEnabled(true);]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Применить тариф РФ]]></LabelText>
+						<DefaultValueCode><![CDATA[true]]></DefaultValueCode>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1653925801625</Id>
+					<Name><![CDATA[tarifEU]]></Name>
+					<X>540</X><Y>1985</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="145" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[tarifRF.setSelected(false);
+tarifEU.setEnabled(false);
+tarifRF.setEnabled(true);]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Применить тариф EU]]></LabelText>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 				</Level>
